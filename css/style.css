@@ -48,7 +48,7 @@ ol {
 .header {
     border-bottom:1px solid #E7E9FC;
     background-color: #fff;
-    padding: 25px;
+    padding: 25px 0;
 }
 .header__container {
     display: flex;
@@ -91,11 +91,22 @@ ol {
 
 .menu-header__item {
     font-weight: 500;
-    letter-spacing: 0.02em
+    letter-spacing: 0.02em;
+}
+
+.menu-header__active::after {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 4px;
+    border-bottom: 4px solid #404BBF;
 }
 
 .menu-header__item a {
-    padding: 24px 0;
+    padding: 30px 0;
+    position: relative;
 }
 
 .menu-header__link:hover {
@@ -227,13 +238,7 @@ section {
     background: #F4F4FD;
     padding: 24px 0;
 }
-.tools-picture__icon {
-    
-}
-._icon-sputnik,
-._icon-clock {
-    font-size: 64px;
-}
+
 .tools__item-title {
     font-size: 20px;
     font-weight: 500;
@@ -266,6 +271,10 @@ text-align: center;
 }
 .team__title:not(:last-child) {
     margin-bottom: 72px;
+}
+
+.team__item {
+    box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08), 0px 1px 1px 0px rgba(46, 47, 66, 0.16), 0px 1px 6px 0px rgba(46, 47, 66, 0.08);
 }
 
 .team__item-title {
@@ -332,6 +341,46 @@ text-align: center;
 
 .portfolio__item {
     width: calc((100% - 48px) / 3);
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio__item:hover {
+    box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08), 0px 1px 1px 0px rgba(46, 47, 66, 0.16), 0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+    cursor: pointer;
+}
+
+.portfolio__item:focus {
+    box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08), 0px 1px 1px 0px rgba(46, 47, 66, 0.16), 0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+    cursor: pointer;
+}
+
+.portfolio__item-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio__item-image img {
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(100%);
+    transition: transform 250ms ease-in-out;
+    background-color: #3f51b5;
+    color: #fff;
+    padding: 40px 32px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.portfolio__item-image:hover .overlay {
+    transform: translateY(0);
 }
 
 .portfolio__item-wrapper {
